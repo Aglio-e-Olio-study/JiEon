@@ -1,3 +1,5 @@
+package study_10_01;
+
 import java.util.*;
 import java.io.*;
 public class bj_2563 {
