@@ -9,9 +9,9 @@ public class bj_1966 {
         for(int test_case=0;test_case<T;test_case++){
             st = new StringTokenizer(br.readLine());
             int N = Integer.parseInt(st.nextToken());
-            int targetPage = Integer.parseInt(st.nextToken());
-            int count=0;
-            PriorityQueue<page> pq = new PriorityQueue<>();
+            int targetPage = Integer.parseInt(st.nextToken());//타켓페이지넘버
+            int count=0;//인쇄된 페이지 카운트
+            PriorityQueue<page> pq = new PriorityQueue<>();//중요도 높은 문서 비교를 위해 사용
             Queue<page> q = new LinkedList<>();
             st = new StringTokenizer(br.readLine());
             for(int i=0;i<N;i++){
@@ -20,15 +20,15 @@ public class bj_1966 {
                 pq.offer(temp);
             }
             while(true){
-                if(pq.peek().imp==q.peek().imp){
+                if(pq.peek().imp==q.peek().imp){//현재 페이지의 중요도가 최대인지 확인
                     pq.poll();
                     int x=q.poll().num;
                     count++;
-                    if(targetPage==x){
+                    if(targetPage==x){//현재 페이지가 타켓페이지일 경우
                         break;
                     }
                 }else{
-                    q.offer(q.poll());
+                    q.offer(q.poll());//페이지를 뒤로 보냄
                 }
             }
             System.out.println(count);
@@ -36,14 +36,14 @@ public class bj_1966 {
         }
     }
     static class page implements Comparable<page>{
-        int num;
-        int imp;
+        int num;//페이지 넘버
+        int imp;//페이지중요도
         page(int num,int imp){
             this.num=num;
             this.imp=imp;
         }
         @Override
-        public int compareTo(page o) {
+        public int compareTo(page o) {//페이지 중요도내림차순 정렬
             return o.imp-this.imp;
         }
     }

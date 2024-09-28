@@ -13,7 +13,7 @@ public class bj_2563 {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-            for(int j=y;j<y+10;j++){
+            for(int j=y;j<y+10;j++){//선택부위색칠
                 for(int k=x;k<x+10;k++){
                     map[j][k]=true;
                 }
@@ -23,7 +23,7 @@ public class bj_2563 {
         for(int i=0;i<100;i++){
             for(int j=0;j<100;j++){
                 if(map[i][j])
-                    count++;
+                    count++;//전체 맵중에 검은색(true)부분 카운트
             }
         }
         System.out.println(count);
